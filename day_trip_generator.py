@@ -103,7 +103,7 @@ def things_to_do():
             if e_excursion_choice == "Y":
                 print("Have fun with that!")
                 excursion_not_chosen = False
-                return t_excursion
+                return e_excursion
             elif e_excursion_choice != "Y":
                 print("We'll try that again!")
         elif go_to == "Fairbanks, AK":
@@ -122,10 +122,10 @@ def all_together():
           final_confirmation = False
           edit = input("Would you like to change your destination, transportation, restaurant, or excursion? Y/N:")
           while final_confirmation == False:
-                if edit == "Y":
+                if edit == "N":
                   print("Wunderbar! Have fun on your trip!")
                   final_confirmation = True
-                elif edit == "N":
+                elif edit == "Y":
                     print(f"Okay {username}, let's work together to come up with another plan!")
                     retry()
                 else:
@@ -135,18 +135,104 @@ def all_together():
     
          
 def retry():
-    review = input(f"Your selections were, {travel}, {means_of_transport}, {choice_of_restaurant}, and {activities}.  What would you like to change?")
-    if review == travel:
-        print("Pass Go")
-    elif review == means_of_transport:
-        print ("Vroom")
-    elif review == choice_of_restaurant:
-        print ("Tasty")
-    elif review == activities:
-        print("BORED")
+    correcting = True
+    while correcting == True:
+        change = input(f"Which of the following would you like to change: destination, transportaiton, restaurant, excursion? Type All Good When you are satisfied with your choice.")
+        if change == "destination":
+            new_location = randomize(locations)
+            check_new_location = input(f"Is {new_location} a better fit? Y/N")
+            if check_new_location == "Y":
+                print(f"Okay {username}, {new_location} will be your new destination!")
+                travel == new_location
+        elif change == "transportation":
+            new_transit = randomize(transportation)
+            check_new_transit = input(f"is {new_transit} an option you would want to go for? Y/N")
+            if check_new_transit == "Y":
+               print(f"Okay {username}, your new means of transportation will be {new_transit}")
+        elif change == "restaurant":
+            if change == "restaurant":
+                if travel == "Tampa, FL":
+                    print(f"Okay {username}, we'll get you a new restaurant...")
+                    new_restaurant = randomize(tampa_restaurants)
+                    new_restaurant_choice = input(f"Is {new_restaurant} something you might want to eat? Y/N:")
+                    if new_restaurant_choice == "Y":
+                        print(f"Excellent! {new_restaurant} will be your new restaurant destination!")
+                        choice_of_restaurant = new_restaurant
+                    elif new_restaurant_choice != "Y":
+                        print(f"That's alright {username}! We'll help you out until you find a solution you like!")
+                elif travel == "Munich, DE":
+                    print(f"Okay{username}, we'll get you a new restaurant!")
+                    new_restaurant = randomize(munich_restaurants)
+                    new_restaurant_choice = input(f"Is {new_restaurant} something yu might want to eat? Y/N:")
+                    if new_restaurant_choice == "Y":
+                        print(f"Excellent! {new_restaurant} will be your new restaurant destination!")
+                        choice_of_restaurant = new_restaurant
+                    elif new_restaurant_choice != "Y":
+                        print(f"That's alright {username}! We'll help you out until you find a solution you like!")
+                elif travel == "Erbil, IQ":
+                    print(f"Okay{username}, we'll get you a new restaurant!")
+                    new_restaurant = randomize(erbil_restaurants)
+                    new_restaurant_choice = input(f"Is {new_restaurant} something you might want to eat? Y/N:")
+                    if new_restaurant_choice == "Y":
+                        print(f"Excellent! {new_restaurant} will be your new restaurant destination!")
+                        choice_of_restaurant = new_restaurant
+                    elif new_restaurant_choice != "Y":
+                        print(f"That's alright {username}! We'll help you out until you find a solution you like!")
+                elif travel == "Fairbanks, AK":
+                    print (f"Okay {username}, we'll get you a new restaurant!")
+                    new_restaurant = randomize(fairbanks_restaurants)
+                    new_restaurant_choice = input(f"Is {new_restaurant} something you might want to eat? Y/N:")
+                    if new_restaurant_choice == "Y":
+                        print(f"Excellent! {new_restaurant} will be your new restaurant destination!")
+                        choice_of_restaurant = new_restaurant
+                    elif new_restaurant_choice != "Y":
+                        print(f"That's alright {username}! We'll help you out until you find a solution you like!")
+        if change == "excursion":
+            if travel == "Tampa, FL":
+                print(f"No worries {username}, we will find you some new entertainment!")
+                new_excursion = randomize(tampa_entertainment)
+                new_excursion_choice = input(f"is{new_excursion} something you might want to do? Y/N: ")
+                if new_excursion_choice == "Y":
+                    print(f"Excellent,{username}! {new_excursion} will be your new entertainment!")
+                    activities = new_excursion
+                elif new_excursion_choice != "Y":
+                    print(f"That's alright {username}! We'll help you out until you find a solution you like!")
+            elif travel == "Munich, DE":
+                print(f"No worries {username}, we will find you some new entertainment!")
+                new_excursion = randomize(munich_entertainment)
+                new_excursion_choice = input(f"is{new_excursion} something you might want to do? Y/N: ")
+                if new_excursion_choice == "Y":
+                    print(f"Excellent,{username}! {new_excursion} will be your new entertainment!")
+                    activities = new_excursion
+                elif new_excursion_choice != "Y":
+                    print(f"That's alright {username}! We'll help you out until you find a solution you like!")
+            elif travel == "Erbil, IQ":
+                new_excursion = randomize(erbil_entertainment)
+                new_excursion_choice = input(f"is{new_excursion} something you might want to do? Y/N: ")
+                if new_excursion_choice == "Y":
+                    print(f"Excellent,{username}! {new_excursion} will be your new entertainment!")
+                    activities = new_excursion
+                elif new_excursion_choice != "Y":
+                    print(f"That's alright {username}! We'll help you out until you find a solution you like!")
+            elif travel == "Fairbanks, AK":
+                new_excursion = randomize(fairbanks_entertainment)
+                new_excursion_choice = input(f"is{new_excursion} something you might want to do? Y/N: ")
+                if new_excursion_choice == "Y":
+                    print(f"Excellent,{username}! {new_excursion} will be your new entertainment!")
+                    activities = new_excursion
+                elif new_excursion_choice != "Y":
+                    print(f"That's alright {username}! We'll help you out until you find a solution you like!")
+        final_check = input(f"Your current selections are: {travel}, {means_of_transport}, {choice_of_restaurant}, and {activities}.  Would you like to make any more changes? Y/N")
+        if final_check == "Y":
+            print(f"No worries, {username}. We're going to work with you to the end.")
+        elif final_check == "N":
+            print(f"Okay {username}, we're going to store this for you.  We just want to confirm things one last time with you.")
+            correcting = False
+            all_together()
 
-   
 
+
+pass
 
 transportation = ["rental car", "train", "airline", "bus"]
 
@@ -166,9 +252,9 @@ erbil_entertainment = ["Erbil Citadel", "Sami Abdulrahman Park", "Erbil Civilisa
 
 fairbanks_restaurants = ["Shogun's", "AK Buffet", "Denny's", "Mcdonald's"]
 
-fairbanks_entertainment = ["Chena Hot Springs", "Denali National Park", "Chena Lake", "Driving the Dalton Highway"]
+fairbanks_entertainment = ["Chena Hot Springs", "Denali National Park", "Chena Lake", "The Dalton Highway"]
 
-
+print("***All entry prompts are case sensitive***")
 username = input("Hello, what would you like me to call you?" )
 print(f"Okay {username}, we are going to plan a trip for you!")
 
