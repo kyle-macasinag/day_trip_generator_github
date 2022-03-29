@@ -118,7 +118,7 @@ def things_to_do():
                 print("We'll try that again!")
 
 
-def all_together():
+def all_together(): #Wrapping it up, or going to revise and edit
           print(f"Okay, we have you set for a trip to {travel}, arriving by {means_of_transport}.  You will eat at {choice_of_restaurant}, and you excursion will be {activities}.")
           final_confirmation = False
           edit = input("Would you like to change your destination, transportation, restaurant, or excursion? Y/N:")
@@ -126,7 +126,7 @@ def all_together():
                 if edit == "N":
                   print("Wunderbar! Have fun on your trip!")
                   final_confirmation = True
-                  pass
+                  exit()
                 elif edit == "Y":
                     print(f"Okay {username}, let's work together to come up with another plan!")
                     retry()
@@ -136,7 +136,7 @@ def all_together():
              
     
          
-def retry():
+def retry(): #Edit each of the selections.  Type "All Good" to go to finish.
     correcting = True
     while correcting == True:
         change = input(f"Which of the following would you like to change: destination, transportaiton, restaurant, excursion? Type All Good When you are satisfied with your choice.")
