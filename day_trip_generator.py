@@ -1,4 +1,5 @@
 import random
+from statistics import mean
 from tkinter import Y
 
 
@@ -125,6 +126,7 @@ def all_together():
                 if edit == "N":
                   print("Wunderbar! Have fun on your trip!")
                   final_confirmation = True
+                  pass
                 elif edit == "Y":
                     print(f"Okay {username}, let's work together to come up with another plan!")
                     retry()
@@ -187,11 +189,11 @@ def retry():
                         choice_of_restaurant = new_restaurant
                     elif new_restaurant_choice != "Y":
                         print(f"That's alright {username}! We'll help you out until you find a solution you like!")
-        if change == "excursion":
+        elif change == "excursion":
             if travel == "Tampa, FL":
                 print(f"No worries {username}, we will find you some new entertainment!")
                 new_excursion = randomize(tampa_entertainment)
-                new_excursion_choice = input(f"is{new_excursion} something you might want to do? Y/N: ")
+                new_excursion_choice = input(f"is {new_excursion} something you might want to do? Y/N: ")
                 if new_excursion_choice == "Y":
                     print(f"Excellent,{username}! {new_excursion} will be your new entertainment!")
                     activities = new_excursion
@@ -200,7 +202,7 @@ def retry():
             elif travel == "Munich, DE":
                 print(f"No worries {username}, we will find you some new entertainment!")
                 new_excursion = randomize(munich_entertainment)
-                new_excursion_choice = input(f"is{new_excursion} something you might want to do? Y/N: ")
+                new_excursion_choice = input(f"is {new_excursion} something you might want to do? Y/N: ")
                 if new_excursion_choice == "Y":
                     print(f"Excellent,{username}! {new_excursion} will be your new entertainment!")
                     activities = new_excursion
@@ -216,23 +218,16 @@ def retry():
                     print(f"That's alright {username}! We'll help you out until you find a solution you like!")
             elif travel == "Fairbanks, AK":
                 new_excursion = randomize(fairbanks_entertainment)
-                new_excursion_choice = input(f"is{new_excursion} something you might want to do? Y/N: ")
+                new_excursion_choice = input(f"is {new_excursion} something you might want to do? Y/N: ")
                 if new_excursion_choice == "Y":
                     print(f"Excellent,{username}! {new_excursion} will be your new entertainment!")
                     activities = new_excursion
                 elif new_excursion_choice != "Y":
                     print(f"That's alright {username}! We'll help you out until you find a solution you like!")
-        final_check = input(f"Your current selections are: {travel}, {means_of_transport}, {choice_of_restaurant}, and {activities}.  Would you like to make any more changes? Y/N")
-        if final_check == "Y":
-            print(f"No worries, {username}. We're going to work with you to the end.")
-        elif final_check == "N":
-            print(f"Okay {username}, we're going to store this for you.  We just want to confirm things one last time with you.")
+        elif change == "All Good":
             correcting = False
             all_together()
 
-
-
-pass
 
 transportation = ["rental car", "train", "airline", "bus"]
 
@@ -268,5 +263,6 @@ means_of_transport = movement()
 choice_of_restaurant = restaurants()
 
 activities = things_to_do()
+
 
 all_together()
