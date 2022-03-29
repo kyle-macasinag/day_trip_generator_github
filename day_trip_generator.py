@@ -80,14 +80,44 @@ def things_to_do():
     go_to = travel
     while excursion_not_chosen == True:
         if go_to == "Tampa, FL":
-            t_excursion = randomize (tampa_entertainment)
-            t_excursion_choice = input(f'Would you ike to visit{t_excursion}? Y/N: )'
+            t_excursion = randomize(tampa_entertainment)
+            t_excursion_choice = input(f"Would you like to visit {t_excursion}? Y/N: ")
             if t_excursion_choice == "Y":
                 print("Have fun with that!")
                 excursion_not_chosen = False
                 return t_excursion
-            elif t_excursion
-        elif go_to == "Munich,DE"
+            elif t_excursion != "Y":
+                print("We'll try that again!")
+        elif go_to == "Munich, DE":
+            m_excursion = randomize(munich_entertainment)
+            m_excursion_choice = input(f"Would you like to visit {m_excursion}? Y/N: ")
+            if m_excursion_choice == "Y":
+                print("Have fun with that!")
+                excursion_not_chosen = False
+                return m_excursion
+            elif m_excursion_choice != "Y":
+                print("We'll try that again!")
+        elif go_to == "Erbil, IQ":
+            e_excursion = randomize(erbil_entertainment)
+            e_excursion_choice = input(f"Would you like to visit {e_excursion}? Y/N: ")
+            if e_excursion_choice == "Y":
+                print("Have fun with that!")
+                excursion_not_chosen = False
+                return t_excursion
+            elif e_excursion_choice != "Y":
+                print("We'll try that again!")
+        elif go_to == "Fairbanks, AK":
+            f_excursion = randomize(fairbanks_entertainment)
+            f_excursion_choice = input(f"Would you like to visit {f_excursion}? Y/N: ")
+            if f_excursion_choice == "Y":
+                print("Have fun with that!")
+                excursion_not_chosen = False
+                return f_excursion
+            elif f_excursion_choice != "Y":
+                print("We'll try that again!")
+
+
+
 
 
 
@@ -102,13 +132,15 @@ tampa_entertainment = ["Busch Gardens", "Tampa Museum of Art", "SS American Vict
 
 munich_restaurants = ["Hofbrauhaus", "Wirsthaus In Der Au", "Trattoria Da Fausto", "Brasserie OskarMaria"]
 
-munich_entertainments = ["Englischer Garten", "Walking Tour of Nazism", "Maximilianeum Tour", "Dachau Memorial"]
+munich_entertainment = ["Englischer Garten", "Walking Tour of Nazism", "Maximilianeum Tour", "Dachau Memorial"]
 
 erbil_restaurants = ["Al Bustan Lebanese", "DC Steakhouse", "Basilico", "Zahle"]
 
-erbil_entertainments = ["Erbil Citadel", "Sami Abdulrahman Park", "Erbil Civilisation Museum", "English Village"]
+erbil_entertainment = ["Erbil Citadel", "Sami Abdulrahman Park", "Erbil Civilisation Museum", "English Village"]
 
 fairbanks_restaurants = ["Shogun's", "AK Buffet", "Denny's", "Mcdonald's"]
+
+fairbanks_entertainment = ["Chena Hot Springs", "Denali National Park", "Chena Lake", "Driving the Dalton Highway"]
 
 
 username = input("Hello, what would you like me to call you?" )
@@ -127,4 +159,4 @@ choice_of_restaurant = restaurants()
 
 activities = things_to_do()
 
-print([travel, means_of_transport, choice_of_restaurant])
+print([travel, means_of_transport, choice_of_restaurant, activities])
