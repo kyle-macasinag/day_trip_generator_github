@@ -117,9 +117,35 @@ def things_to_do():
                 print("We'll try that again!")
 
 
+def all_together():
+          print(f"Okay, we have you set for a trip to {travel}, arriving by {means_of_transport}.  You will eat at {choice_of_restaurant}, and you excursion will be {activities}.")
+          final_confirmation = False
+          edit = input("Would you like to change your destination, transportation, restaurant, or excursion? Y/N:")
+          while final_confirmation == False:
+                if edit == "Y":
+                  print("Wunderbar! Have fun on your trip!")
+                  final_confirmation = True
+                elif edit == "N":
+                    print(f"Okay {username}, let's work together to come up with another plan!")
+                    retry()
+                else:
+                    print('Invalid input.  Please state "Y" or "N"' )  
 
+             
+    
+         
+def retry():
+    review = input(f"Your selections were, {travel}, {means_of_transport}, {choice_of_restaurant}, and {activities}.  What would you like to change?")
+    if review == travel:
+        print("Pass Go")
+    elif review == means_of_transport:
+        print ("Vroom")
+    elif review == choice_of_restaurant:
+        print ("Tasty")
+    elif review == activities:
+        print("BORED")
 
-
+   
 
 
 transportation = ["rental car", "train", "airline", "bus"]
@@ -149,9 +175,7 @@ print(f"Okay {username}, we are going to plan a trip for you!")
 print("First, let's plan a destination!")
 
 
-
 travel = destination()
-
 
 means_of_transport = movement()
 
@@ -159,4 +183,4 @@ choice_of_restaurant = restaurants()
 
 activities = things_to_do()
 
-print([travel, means_of_transport, choice_of_restaurant, activities])
+all_together()
